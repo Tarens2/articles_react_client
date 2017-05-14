@@ -1,0 +1,37 @@
+.card {
+    box-sizing: border-box;
+    height: 200px;
+    background-color: #eeeeee;
+    border-radius: 4px;
+    margin: 15px;
+    padding: 10px;
+    width: calc(33.3333333333% - 30px);
+    display: inline-block;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    position: relative;
+}
+
+.card .bottom_info {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    border-top: 1px solid gray;
+
+}
+
+.card .comment_icon {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.card .bottom_line {
+    line-height: 40px;
+    padding: 0 10px;
+}
+.card .author {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-style: italic;
+}

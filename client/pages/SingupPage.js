@@ -3,7 +3,7 @@ import {connect}  from "react-redux";
 import PropTypes from 'prop-types';
 
 import SingupForm from '../components/SingupForm';
-import {userSingupRequest} from '../actions/userSingupActions';
+import {userSingUpRequest} from '../actions/user';
 
 class SingupPage extends React.Component {
     
@@ -12,15 +12,15 @@ class SingupPage extends React.Component {
         return (
             <div className="row">
                 <div className="col-md-4 col-md-offset-4">
-                    <SingupForm userSingupRequest={userSingupRequest}/>
+                    <SingupForm userSingupRequest={userSingUpRequest}/>
                 </div>
             </div>
         )
     }
 }
 SingupPage.propTypes = {
-    userSingupRequest: PropTypes.func.isRequired
+    userSingUpRequest: PropTypes.func.isRequired
 };
 
 
-export default connect((state)=>({}), {userSingupRequest})(SingupPage);
+export default connect((state)=>({}), {userSingUpRequest})(SingupPage);

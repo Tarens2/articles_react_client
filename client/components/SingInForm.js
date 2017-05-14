@@ -1,20 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import validateInput from "../tools/singup";
 import {createBrowserHistory} from 'history';
+import {withRouter} from 'react-router';
 
+import validateInput from "../tools/singin_validate";
 import TextFieldGroup from './common/TextFieldGroup';
 
 let history = createBrowserHistory();
-export default class SingupForm extends React.Component {
+
+class SingInForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             login: '',
             password: '',
-            password_confirmation: '',
-            name: '',
-            email: '',
             errors: {},
             isLoading: false
         };
@@ -46,34 +45,23 @@ export default class SingupForm extends React.Component {
                 errors: {},
                 isLoading: true
             });
-            this.props.userSingupRequest(this.state).then(
-                (data) => {
-                    console.log(data);
-                },
-                (data) => {
-                    console.log(data);
-                    this.setState({
-                        errors: data,
-                        isLoading: false
-                    })
-                }
-            )
+
+            this.props.requestAction(this.state, this.undisableButton.bind(this));
         }
-
     }
-
+    undisableButton() {
+        console.log(this);
+        this.props.history.push('/');
+        this.setState({
+            isLoading: false
+        })
+    }
     render() {
         const {errors} = this.state;
+
         return (
             <form action="#" onSubmit={this.onSubmitHandler}>
-                <h1>Join our community!</h1>
-                <TextFieldGroup
-                    name="name"
-                    onChange={this.onChangeHandler}
-                    type="text"
-                    errors={errors}
-                    label="Name"
-                />
+                <h1>Log in to Community!</h1>
                 <TextFieldGroup
                     name="login"
                     onChange={this.onChangeHandler}
@@ -82,25 +70,11 @@ export default class SingupForm extends React.Component {
                     label="Login"
                 />
                 <TextFieldGroup
-                    name="email"
-                    onChange={this.onChangeHandler}
-                    type="text"
-                    errors={errors}
-                    label="Email"
-                />
-                <TextFieldGroup
                     name="password"
                     onChange={this.onChangeHandler}
                     type="password"
                     label="Password"
                     errors={errors}
-                />
-                <TextFieldGroup
-                    name="password_confirmation"
-                    onChange={this.onChangeHandler}
-                    type="password"
-                    errors={errors}
-                    label="Password Confirmation"
                 />
                 <div className="form-group">
                     <button disabled={this.state.isLoading} className="btn btn-primary btn-lg">
@@ -112,6 +86,8 @@ export default class SingupForm extends React.Component {
     }
 }
 
-SingupForm.propTypes = {
-    userSingupRequest: PropTypes.func.isRequired
+SingInForm.propTypes = {
+    requestAction: PropTypes.func.isRequired
 };
+
+export default withRouter(SingInForm);
