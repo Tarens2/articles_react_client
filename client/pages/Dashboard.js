@@ -22,6 +22,7 @@ class Dashboard extends React.Component {
                 text={article.text}
                 comments={article.comments}
                 user={article.user}
+                id={article.id}
             />
         )) : '';
     }

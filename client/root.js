@@ -3,7 +3,7 @@ import {connect}  from "react-redux";
 import {userSingInFromStorage}from './actions/user';
 import {Route} from 'react-router';
 import {createBrowserHistory} from 'history';
-import BrowserRouter from "../node_modules/react-router-dom/es/BrowserRouter";
+import {BrowserRouter, Switch} from "react-router-dom";
 
 import {applyMiddleware, createStore} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
@@ -18,7 +18,7 @@ import SingIn from './pages/SinginPage';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/profilePage/ProfilePage';
 import NotFound from './pages/NotFound';
-
+import ArticlePage from './pages/ArticlePage';
 
 import reducer from './reducers';
 
@@ -37,18 +37,23 @@ class Root extends React.Component {
         return <Provider store={store}>
             <BrowserRouter history={browserHistory}>
                 <div className="container">
+
                     <Route path="/" component={Navigation}/>
                     <Route exact path="/" component={App}/>
-                    <Route path="/articles/:id" component={App}/>
                     <Route exact path="/singup" component={SingUp}/>
                     <Route exact path="/singin" component={SingIn}/>
-                    <Route exact path="/" component={Dashboard}/>
+                    <Articles />
                     <Route exact path="/profile" component={Profile}/>
                 </div>
             </BrowserRouter>
         </Provider>
-
     }
 }
+const Articles = () => (
+    <Switch>
+        <Route exact path='/articles' component={Dashboard}/>
+        <Route path='/articles/:id' component={ArticlePage}/>
+    </Switch>
+);
 
 export default Root;
