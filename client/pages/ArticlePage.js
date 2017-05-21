@@ -4,6 +4,7 @@ import _ from 'lodash';
 import Dashboard from '../pages/Dashboard';
 import {getArticlesByUser_id} from '../actions/articles';
 import CommentForm from '../components/CommentForm/CommentForm'
+import CommentsBlock from '../components/CommentsBlock/CommentsBlock'
 
 class ArticlePage extends React.Component {
     constructor(props) {
@@ -31,6 +32,7 @@ class ArticlePage extends React.Component {
                     <p>{article.text}</p>
                 </div>
                 <CommentForm article_id={article.id}/>
+                <CommentsBlock comments={article.comments}/>
                 <div>
                     <h3>More articles form <i>{article.user.login}</i>:</h3>
                     <Dashboard user_id={user_id} userArticles={userArticles} />

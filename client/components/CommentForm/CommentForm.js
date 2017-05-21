@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {setArticleComment} from '../../actions/comments';
+import style from './comment_form.css';
 
 class CommentForm extends React.Component {
     constructor(props) {
@@ -17,19 +18,23 @@ class CommentForm extends React.Component {
         });
     }
     onClickHandler() {
+        if(this.state.comment.length == 0) return;
         this.props.setArticleComment({
             token: this.props.authToken.token,
             article_id: this.props.article_id,
             text: this.state.comment
-        })
+        });
+        this.setState({
+            comment: ''
+        });
     }
     render() {
         return (
             <div>
-                <textarea name='comment' onChange={this.onChangeHandler}>
-                    
+                <h4>Write our comment</h4>
+                <textarea name="comment" className={style.input_text} onChange={this.onChangeHandler} value={this.state.comment}>
                 </textarea>
-                <button onClick={this.onClickHandler}>Send</button>
+                <button className={`btn ${style.send}`} onClick={this.onClickHandler}>Send</button>
             </div>
         );
     }
