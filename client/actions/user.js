@@ -25,7 +25,6 @@ export function userSingInFromStorage(data, callback) {
                     type: 'SET_TOKEN',
                     payload: {token, authed: true}
                 });
-                console.log(data);
                 dispatch({
                     type: 'SET_USER',
                     payload: {user: data.data.user}

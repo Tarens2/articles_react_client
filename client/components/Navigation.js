@@ -42,10 +42,12 @@ class Navigation extends React.Component {
         return <nav className="navbar navbar-default">
             <div className="container-fluid">
                 <div className="navbar-header">
-                    <Link to="/" className="navbar-brand">Red Dice</Link>
+                    <Link to="/" className="navbar-brand">Collective Blog</Link>
+
                 </div>
                 <div className="collapse navbar-collapse">
                     <ul className="nav navbar-nav navbar-right">
+                        <li><Link to="/articles">Articles</Link></li>
                         {this.renderNotAuthed()}
                     </ul>
                 </div>
