@@ -24,6 +24,9 @@ class Navigation extends React.Component {
             ];
         else
             return [
+
+                <li key="3"><Link to="/articles">Articles</Link></li>,
+                <li key="4"><Link to="/create">Create articles</Link></li>,
                 <li key="2">
                     <Link to="/profile">{ this.props.user.name }</Link>
                 </li>,
@@ -47,7 +50,6 @@ class Navigation extends React.Component {
                 </div>
                 <div className="collapse navbar-collapse">
                     <ul className="nav navbar-nav navbar-right">
-                        <li><Link to="/articles">Articles</Link></li>
                         {this.renderNotAuthed()}
                     </ul>
                 </div>
