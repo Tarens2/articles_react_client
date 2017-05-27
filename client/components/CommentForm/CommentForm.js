@@ -32,9 +32,9 @@ class CommentForm extends React.Component {
         return (
             <div>
                 <h4>Write our comment</h4>
-                <textarea name="comment" className={style.input_text} onChange={this.onChangeHandler} value={this.state.comment}>
+                <textarea name="comment" className="comment-form__input_text" onChange={this.onChangeHandler} value={this.state.comment}>
                 </textarea>
-                <button className={`btn ${style.send}`} onClick={this.onClickHandler}>Send</button>
+                <button className={`btn comment-form__send`} onClick={this.onClickHandler}>Send</button>
             </div>
         );
     }

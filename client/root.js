@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect}  from "react-redux";
-import {userSingInFromStorage}from './actions/user';
+import {userSingInFromStorage} from './actions/user';
 import {Route} from 'react-router';
 import {createBrowserHistory} from 'history';
 import {BrowserRouter, Switch} from "react-router-dom";
@@ -10,7 +10,7 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import {Provider}from 'react-redux';
 import thunk from 'redux-thunk';
 
-import createArticlePage from './pages/createArticlePage';
+import CreateArticlePage from './pages/CreateArticlePage/CreateArticlePage';
 import App from './pages/App';
 import Navigation  from './components/Navigation';
 import SingUp from './pages/SingupPage';
@@ -42,7 +42,7 @@ class Root extends React.Component {
                     <Route exact path="/" component={App}/>
                     <Route exact path="/singup" component={SingUp}/>
                     <Route exact path="/singin" component={SingIn}/>
-                    <Route exact path="/create" component={createArticlePage}/>
+                    <Route exact path="/create" component={CreateArticlePage}/>
                     <Articles />
                     <Route exact path="/profile" component={Profile}/>
                 </div>

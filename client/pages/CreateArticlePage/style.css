@@ -1,0 +1,17 @@
+.article-create__textarea {
+    width: 100%;
+    height: 300px;
+    resize: none;
+}
+
+.article-create__label {
+    margin-top: 15px;  
+}
+
+.article-create__form {
+    padding: 0 15px;
+}
+
+.article-create__button {
+    margin-top: 30px;
+}

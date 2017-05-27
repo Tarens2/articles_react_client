@@ -1,4 +1,4 @@
-.comment {
+.comments-block__comment {
     border: 1px solid lightgray;
     box-shadow: 0 0 10px rgba(0,0,0,.3);
     padding: 10px;
@@ -6,14 +6,14 @@
     margin-bottom: 10px;
     border-radius: 3px;
 }
-.comment:first-child {
+.comments-block__comment:first-child {
     margin-top: 30px;
 }
-.comment p {
+.comments-block__comment p {
     margin: 0;
 }
 
-.comment .user {
+.comments-block__comment .comments-block__user {
     font-size: .7em;
     color: gray;
 }

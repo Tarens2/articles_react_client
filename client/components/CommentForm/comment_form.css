@@ -1,10 +1,10 @@
-.input_text {
+.comment-form__input_text {
     resize: none;
     display: block;
     width: 100%;
     margin-bottom: 10px;
 }
 
-.send {
+.comment-form__send {
     margin-bottom: 30px;
 }

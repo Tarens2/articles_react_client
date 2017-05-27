@@ -34,7 +34,7 @@ class ArticlePage extends React.Component {
                 <CommentForm article_id={article.id}/>
                 <CommentsBlock comments={article.comments}/>
                 <div>
-                    <h3>More articles form <i>{article.user.login}</i>:</h3>
+                    <h3>More articles from <i>{article.user.login}</i>:</h3>
                     <Dashboard user_id={user_id} userArticles={userArticles} />
                 </div>
             </div>
