@@ -5,7 +5,7 @@ import styles from './Article.css';
 import CommentIcon from './ic_comment_black_24px.svg';
 
 
-const ArticleCard = ({title, text, id, comments, user}) => (
+const ArticleCard = ({title, text, id, comments_count, user}) => (
     <div className={`card`}>
         <h3>
             <Link to={`/articles/${id}`}>{title}</Link>
@@ -15,7 +15,7 @@ const ArticleCard = ({title, text, id, comments, user}) => (
         <div className="bottom_info">
             <div className="bottom_line">
                 <CommentIcon className="comment_icon"/>
-                <span>{comments && comments.length}</span>
+                <span>{comments_count}</span>
             </div>
         </div>
     </div>

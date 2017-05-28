@@ -12,6 +12,8 @@ class Dashboard extends React.Component {
         }
     }
 
+   
+    
     renderArticles() {
         let {authToken, articles, filterUserId, userArticles, user_id} = this.props;
         return (authToken.authed && articles && articles.length) ?
@@ -21,7 +23,7 @@ class Dashboard extends React.Component {
                     key={index}
                     title={article.title}
                     text={article.text}
-                    comments={article.comments}
+                    comments_count={article.comments_count}
                     user={article.user}
                     id={article.id}
                 />

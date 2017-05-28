@@ -18,13 +18,15 @@ export function userSingInRequest(userData, callback) {
 export function userSingInFromStorage(data, callback) {
     return dispatch => {
         let token = localStorage.getItem('token');
+
+        dispatch({
+            type: 'SET_TOKEN',
+            payload: {token, authed: true}
+        });
         if (!token) return;
         instance.get('auth/me', {params: {token}})
             .then((data) => {
-                dispatch({
-                    type: 'SET_TOKEN',
-                    payload: {token, authed: true}
-                });
+
                 dispatch({
                     type: 'SET_USER',
                     payload: {user: data.data.user}
@@ -45,6 +47,14 @@ export function userSingOut(data, callback) {
 
 export function userSingUpRequest(userData) {
     return dispatch => {
-        return instance.post('/register', userData);
+        instance.post('/register', userData)
+            .then((data) => {
+
+                dispatch({
+                    type: 'SET_USER',
+                    payload: {user: data.data.user}
+                });
+                callback && callback();
+            });
     }
 }

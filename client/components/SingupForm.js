@@ -1,20 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import validateInput from "../tools/singup";
-import {createBrowserHistory} from 'history';
+import {userSingUpRequest} from '../actions/user';
+import {connect}  from "react-redux";
+
 
 import TextFieldGroup from './common/TextFieldGroup';
 
-let history = createBrowserHistory();
-export default class SingupForm extends React.Component {
+class SingUpForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            login: '',
-            password: '',
-            password_confirmation: '',
-            name: '',
-            email: '',
+            login: 'qwe',
+            password: 'qwe',
+            password_confirmation: 'qwe',
+            name: 'qwe',
+            email: 'qwe@qwe.ru',
             errors: {},
             isLoading: false
         };
@@ -46,18 +47,8 @@ export default class SingupForm extends React.Component {
                 errors: {},
                 isLoading: true
             });
-            this.props.userSingupRequest(this.state).then(
-                (data) => {
-                    console.log(data);
-                },
-                (data) => {
-                    console.log(data);
-                    this.setState({
-                        errors: data,
-                        isLoading: false
-                    })
-                }
-            )
+            
+            this.props.userSingUpRequest(this.state);
         }
 
     }
@@ -112,6 +103,6 @@ export default class SingupForm extends React.Component {
     }
 }
 
-SingupForm.propTypes = {
-    userSingupRequest: PropTypes.func.isRequired
-};
+
+
+export default connect((state)=>({}), {userSingUpRequest})(SingUpForm);

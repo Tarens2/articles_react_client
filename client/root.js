@@ -19,6 +19,7 @@ import Dashboard from './pages/Dashboard';
 import Profile from './pages/profilePage/ProfilePage';
 import NotFound from './pages/NotFound';
 import ArticlePage from './pages/ArticlePage';
+import ArticleChartPage from './pages/ArticleChartPage/ArticleChartPage';
 
 import reducer from './reducers';
 
@@ -53,7 +54,8 @@ class Root extends React.Component {
 const Articles = () => (
     <Switch>
         <Route exact path='/articles' component={Dashboard}/>
-        <Route path='/articles/:id' component={ArticlePage}/>
+        <Route path='/articles/:id' exact component={ArticlePage}/>
+        <Route path='/articles/:id/chart' exact component={ArticleChartPage}/>
     </Switch>
 );
 

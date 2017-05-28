@@ -34,7 +34,7 @@ class CommentForm extends React.Component {
                 <h4>Write our comment</h4>
                 <textarea name="comment" className="comment-form__input_text" onChange={this.onChangeHandler} value={this.state.comment}>
                 </textarea>
-                <button className={`btn comment-form__send`} onClick={this.onClickHandler}>Send</button>
+                <button disabled={!this.state.comment} className={`btn comment-form__send`} onClick={this.onClickHandler}>Send</button>
             </div>
         );
     }

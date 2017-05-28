@@ -42,6 +42,7 @@
     "react-svg": "^2.1.19",
     "react-svg-inline-loader": "^0.2.2",
     "react-svg-loader": "^1.1.1",
+    "recharts": "^1.0.0-alpha.0",
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.2",
     "style-loader": "^0.17.0",

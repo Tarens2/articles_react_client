@@ -55,7 +55,7 @@ class Dashboard extends React.Component {
                     <input name="title" value={title} onChange={this.onChangeHandler} />
                     <p className="article-create__label">Text your article:</p>
                     <textarea className="article-create__textarea" name="text" value={text} onChange={this.onChangeHandler}></textarea>
-                    <button type="submit" className={`btn article-create__button`}>Отправить</button>
+                    <button disabled={!text || !title} type="submit" className={`btn article-create__button`}>Отправить</button>
                 </form>
                 
 				<div>

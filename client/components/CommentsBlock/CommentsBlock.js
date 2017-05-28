@@ -4,8 +4,8 @@ import _ from 'lodash';
 
 const CommentsBlock = ({comments}) => {
     let renderCommentsBlockItem = () => {
-        return _.map(comments, ({user = {}, text}, key) => {
-            return <CommentsBlockItem key={key} user={user} text={text} />
+        return _.map(comments, ({login , text}, key) => {
+            return <CommentsBlockItem key={key} login={login} text={text} />
         }).reverse();
     };
     return <div>{renderCommentsBlockItem()}</div>
