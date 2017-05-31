@@ -28,3 +28,15 @@ export function getComments(userData, callback) {
     }
 }
 
+export function postCommentLike(userData, callback) {
+    return dispatch => {
+        instance.post(`/comments/${userData.comment_id}/like?token=${userData.token}`, userData)
+            .then((data) => {
+                    dispatch({ type: 'SET_COMMENTS', payload: data.data });
+
+                    callback && callback();
+                },
+                (data) => { callback && callback(); }
+            )
+    }
+}

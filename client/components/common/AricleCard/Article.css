@@ -36,10 +36,25 @@
 .card .bottom_line {
     line-height: 40px;
     padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
 }
 .card .author {
     position: absolute;
     right: 10px;
     top: 10px;
     font-style: italic;
+}
+
+.article-card__button {
+    border: 0;
+    background: 0;
+    padding: 0;
+    margin: 0;
+    transition: .3s;
+}
+
+.article-card__button:focus, .article-card__button:hover{
+    outline: none;
+    opacity: 0.7;
 }

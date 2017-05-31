@@ -26,4 +26,15 @@ export function postArticles(userData, callback) {
     }
 }
 
+export function postArticleLike(userData, callback) {
+    return dispatch => {
+        instance.post(`/articles/${userData.article_id}/like?token=${userData.token}`, userData)
+            .then((data) => {
+                    dispatch({ type: 'SET_ARTICLES', payload: data.data });
 
+                    callback && callback();
+                },
+                (data) => { callback && callback(); }
+            )
+    }
+}

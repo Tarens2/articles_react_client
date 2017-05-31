@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect}  from "react-redux";
 import ArticleCard from '../components/common/AricleCard/ArticleCard';
-import {getArticles} from '../actions/articles';
+import {getArticles, postArticleLike} from '../actions/articles';
 
 class Dashboard extends React.Component {
     componentWillMount() {
@@ -12,10 +12,12 @@ class Dashboard extends React.Component {
         }
     }
 
-   
+    onClickHandler(id) {
+        this.props.postArticleLike({token: this.props.authToken.token, article_id: id})
+    }
     
     renderArticles() {
-        let {authToken, articles, filterUserId, userArticles, user_id} = this.props;
+        let {authToken, articles, filterUserId, userArticles, user_id, postArticleLike} = this.props;
         return (authToken.authed && articles && articles.length) ?
             (user_id ? userArticles : articles).map((article, index) => (
                 <ArticleCard
@@ -24,8 +26,10 @@ class Dashboard extends React.Component {
                     title={article.title}
                     text={article.text}
                     comments_count={article.comments_count}
+                    likes_count={article.likes_count}
                     user={article.user}
                     id={article.id}
+                    onClickHandler={this.onClickHandler.bind(this, article.id)}
                 />
             )) : '';
     }
@@ -40,4 +44,4 @@ class Dashboard extends React.Component {
 }
 
 
-export default connect((state)=>({authToken: state.authToken, articles: state.articles}), {getArticles})(Dashboard);
+export default connect((state)=>({authToken: state.authToken, articles: state.articles}), {getArticles, postArticleLike})(Dashboard);
