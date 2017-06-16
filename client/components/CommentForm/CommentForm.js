@@ -30,7 +30,7 @@ class CommentForm extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div className="comment-form">
                 <h4>Write our comment</h4>
                 <textarea name="comment" className="comment-form__input_text" onChange={this.onChangeHandler} value={this.state.comment}>
                 </textarea>

@@ -1,10 +1,10 @@
 .comments-block__comment {
     border: 1px solid lightgray;
     box-shadow: 0 0 10px rgba(0,0,0,.3);
-    padding: 10px;
     font-size: 20px;
-    margin-bottom: 10px;
+    padding: 15px;
     border-radius: 3px;
+    margin: 5px 2rem;
 }
 .comments-block__comment:first-child {
     margin-top: 30px;

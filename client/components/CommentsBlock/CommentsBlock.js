@@ -1,6 +1,7 @@
 import React from 'react';
 import CommentsBlockItem from '../CommentsBlockItem/CommentsBlockItem';
 import _ from 'lodash';
+import styles from "./comments_block.css";
 
 const CommentsBlock = ({comments}) => {
     let renderCommentsBlockItem = () => {
@@ -14,7 +15,7 @@ const CommentsBlock = ({comments}) => {
             />
         }).reverse();
     };
-    return <div>{renderCommentsBlockItem()}</div>
+    return <div className="comments-block">{renderCommentsBlockItem()}</div>
 };
 
 export default CommentsBlock;

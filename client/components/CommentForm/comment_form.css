@@ -8,3 +8,7 @@
 .comment-form__send {
     margin-bottom: 30px;
 }
+
+.comment-form {
+    margin: 5px 2rem;
+}
