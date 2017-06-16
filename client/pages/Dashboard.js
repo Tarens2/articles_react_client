@@ -31,7 +31,12 @@ class Dashboard extends React.Component {
                     id={article.id}
                     onClickHandler={this.onClickHandler.bind(this, article.id)}
                 />
-            )) : '';
+            )) :
+            <div className="container">
+                <div className="jumbotron">
+                    <h3>Please, sing up, if you want to make articles and read others.</h3>
+                </div>
+            </div>;
     }
 
     render() {

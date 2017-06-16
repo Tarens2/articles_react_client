@@ -7,7 +7,6 @@ import validateInput from "../tools/singin_validate";
 import TextFieldGroup from './common/TextFieldGroup';
 
 let history = createBrowserHistory();
-
 class SingInForm extends React.Component {
     constructor(props) {
         super(props);
@@ -50,7 +49,9 @@ class SingInForm extends React.Component {
         }
     }
     undisableButton() {
-        console.log(this);
+        // delete require.cache[require.resolve('../actions/instance')];
+        // require('../actions/instance');
+        window.location.reload();
         this.props.history.push('/');
         this.setState({
             isLoading: false

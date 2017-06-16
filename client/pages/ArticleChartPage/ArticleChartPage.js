@@ -18,7 +18,7 @@ class ArticlePage extends React.Component {
             data.push({time: key, count: this.props.watchers[key].length});
         return (
             <div>
-                <LineChart width={600} height={300} data={data}
+                <LineChart styles={{margin: "0 auto"}} width={600} height={300} data={data}
                            margin={{top: 5, right: 30, left: 20, bottom: 5}}
                 >
                     <XAxis dataKey="time"/>

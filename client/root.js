@@ -37,16 +37,18 @@ class Root extends React.Component {
     render() {
         return <Provider store={store}>
             <BrowserRouter history={browserHistory}>
-                <div className="container">
-
+                <div>
                     <Route path="/" component={Navigation}/>
-                    <Route exact path="/" component={App}/>
-                    <Route exact path="/singup" component={SingUp}/>
-                    <Route exact path="/singin" component={SingIn}/>
-                    <Route exact path="/create" component={CreateArticlePage}/>
-                    <Articles />
-                    <Route exact path="/profile" component={Profile}/>
+                    <div className="container">
+                        <Route exact path="/" component={Dashboard}/>
+                        <Route exact path="/singup" component={SingUp}/>
+                        <Route exact path="/singin" component={SingIn}/>
+                        <Route exact path="/create" component={CreateArticlePage}/>
+                        <Articles />
+                        <Route exact path="/profile" component={Profile}/>
+                    </div>
                 </div>
+
             </BrowserRouter>
         </Provider>
     }

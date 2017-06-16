@@ -5,7 +5,6 @@ import './Article.css';
 import CommentIcon from './ic_comment_black_24px.svg';
 import LikeIcon from './like.svg';
 
-
 const ArticleCard = ({title, text, id, comments_count, likes_count, user, onClickHandler}) => (
     <div className={`card`}>
         <h3>

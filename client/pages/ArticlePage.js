@@ -5,9 +5,8 @@ import Dashboard from '../pages/Dashboard';
 import CommentForm from '../components/CommentForm/CommentForm'
 import CommentsBlock from '../components/CommentsBlock/CommentsBlock'
 import {watchArticle} from "../actions/watcher";
-import {getComments} from "../actions/comments";
+import {getComments, postCommentLike} from "../actions/comments";
 import {Link} from 'react-router-dom';
-
 
 class ArticlePage extends React.Component {
     constructor(props) {
@@ -36,7 +35,11 @@ class ArticlePage extends React.Component {
         }
         return {article: found, userArticles: foundMany};
     }
-
+    
+    onClickCommentsHandler(id) {
+        this.props.postCommentLike({token: this.props.authToken.token, comment_id: id });
+    }
+    
     render() {
 
         let {article = {user: {}}, userArticles }= this.findArticle();
@@ -47,10 +50,10 @@ class ArticlePage extends React.Component {
                 <div className="jumbotron">
                     <h1>{article.title}</h1>
                     <p>{article.text}</p>
-                    <Link to={`./${this.props.match.params.id}/chart`}> Chart </Link>
+                    <Link className="btn btn-primary btn-lg" to={`./${this.props.match.params.id}/chart`}>Show statistics</Link>
                 </div>
                 <CommentForm article_id={article.id}/>
-                <CommentsBlock comments={this.props.comments}/>
+                <CommentsBlock comments={this.props.comments} onClickCommentsHandler={this.onClickCommentsHandler.bind(this)}/>
                 <div>
                     <h3>More articles from <i>{article.user.login}</i>:</h3>
                     <Dashboard user_id={user_id} userArticles={userArticles} />
@@ -64,4 +67,4 @@ export default connect((state)=>({
     articles: state.articles,
     authToken: state.authToken,
     comments: state.comments
-}), { watchArticle, getComments })(ArticlePage);
+}), { watchArticle, getComments, postCommentLike })(ArticlePage);

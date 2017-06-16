@@ -2,7 +2,7 @@ import instance from './instance';
 
 export function setArticleComment(userData, callback) {
     return dispatch => {
-        instance.post(`/articles/${userData.article_id}/comment?token=${userData.token}`,
+        instance.post(`/articles/${userData.article_id}/comment`,
             userData)
             .then((data) => {
                     dispatch({type: 'SET_COMMENTS', payload: data.data});

@@ -2,7 +2,7 @@ import instance from "./instance";
 
 export function watchArticle(userData, callback) {
     return dispatch => {
-        instance.post(`/articles/${userData.article_id}/watch?token=${userData.token}`, userData)
+        instance.post(`/articles/${userData.article_id}/watch`, userData)
             .then((data) => {
                     callback && callback();
                 },

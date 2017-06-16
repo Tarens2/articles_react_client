@@ -18,13 +18,12 @@ export function userSingInRequest(userData, callback) {
 export function userSingInFromStorage(data, callback) {
     return dispatch => {
         let token = localStorage.getItem('token');
-
+        if (!token) return;
         dispatch({
             type: 'SET_TOKEN',
             payload: {token, authed: true}
         });
-        if (!token) return;
-        instance.get('auth/me', {params: {token}})
+        instance.get('users/me')
             .then((data) => {
 
                 dispatch({

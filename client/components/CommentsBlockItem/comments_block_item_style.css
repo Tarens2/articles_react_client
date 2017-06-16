@@ -17,3 +17,20 @@
     font-size: .7em;
     color: gray;
 }
+.comments-block__count {
+    line-height: 30px;
+    margin-left: 6px;
+}
+
+.comments-block__bottom {
+    border-top: 1px solid silver;
+    display: flex;
+    line-height: 30px;
+    margin-top: 10px;
+}
+
+.comments-block__button {
+    border: 0;
+    background: none;
+
+}
